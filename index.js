@@ -16,11 +16,7 @@ class Bot extends Client {
 }
 
 const client = new Bot({
-    intents: ['Guilds', 'GuildMessages', 'MessageContent'],
-    database: {
-        path: './database',
-        tables: ['main']
-    }
+    intents: ['Guilds', 'GuildMessages', 'MessageContent']
 });
 
 client.commands = new Collection();
