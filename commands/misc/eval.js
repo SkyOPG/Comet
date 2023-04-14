@@ -9,11 +9,7 @@ module.exports = ({
         .setDescription('code to evaluate')
         .setRequired(true)
     ),
-    async execute(user, interaction){
-        if(user.id === 999095882156875856){
+    async execute(interaction, client){
        await eval(interaction.options.getString('code'))
-        } else {
-            await interaction.reply(`you are not my dev`)
-        }
     }
 })
