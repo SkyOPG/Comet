@@ -2,7 +2,7 @@ const { Events } = require('discord.js');
 
 module.exports = {
 	name: Events.InteractionCreate,
-	async execute(interaction) {
+	async execute(client, interaction) {
 		if (!interaction.isChatInputCommand()) return;
 
 		const command = interaction.client.commands.get(interaction.commandName);
@@ -13,8 +13,9 @@ module.exports = {
 		}
 
 		try {
-			await command.execute(interaction);
+			await command.execute(client, interaction);
 		} catch (error) {
+			interaction.reply({ content: 'there was an error running this command', ephemeral: true })
 			console.error(`Error executing ${interaction.commandName}`);
 			console.error(error);
 		}

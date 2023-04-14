@@ -9,7 +9,7 @@ module.exports = ({
         .setDescription('code to evaluate')
         .setRequired(true)
     ),
-    async execute(interaction, client){
+    async execute(client, interaction){
        await eval(interaction.options.getString('code'))
     }
 })

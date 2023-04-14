@@ -9,7 +9,7 @@ module.exports = {
             .setDescription('the message to send')
             .setRequired(true)
             ),
-        async execute(interaction) {
+        async execute(client, interaction) {
         await interaction.reply(interaction.options.getString('message'))
         }
 }

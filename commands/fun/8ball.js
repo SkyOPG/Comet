@@ -9,7 +9,7 @@ module.exports = {
     option.setName('question')
         .setDescription('the question to answer')
         .setRequired(true)),
-  async execute(interaction) {
+  async execute(client, interaction) {
     const randomPick = answers[Math.floor(Math.random() * answers.length)];
     await interaction.reply({
       embeds: [
