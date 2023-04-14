@@ -2,7 +2,7 @@ const { Database } = require('midb');
 const fs = require('node:fs')
 const path = require('node:path')
 const { Client, Collection, GatewayIntentBits } = require('discord.js')
-const { token } = require('./settings/config.json')
+const { token } = require('./config.json')
 
 class Bot extends Client {
     constructor(options) {
