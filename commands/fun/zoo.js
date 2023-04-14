@@ -13,7 +13,6 @@ module.exports = {
             .setTitle(Foxes)
             .setDescription(response.data.fact)
             .setImage(response.data.image)
-            .setTimestamp
         ]
        })
     }
