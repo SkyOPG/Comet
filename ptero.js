@@ -15,7 +15,8 @@ function inputChoice(...args){
 var files = fs[sjs.run(files)]
 // asking
 const choice = inputChoice(String)
-
+// execute the answer
+console.log('executing')
 if(choice === 'y'){
     sjs.run('deploy.js')
 } else {
