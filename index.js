@@ -1,13 +1,13 @@
 const { Database } = require('midb');
-const fs = require('node:fs')
-const path = require('node:path')
-const { Client, Collection, GatewayIntentBits } = require('discord.js')
-const { token } = require('./config.json')
-const prefix = '!'
+const fs = require('node:fs');
+const path = require('node:path');
+const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { token } = require('./config.json');
+const prefix = '!';
 
 class Bot extends Client {
     constructor(options) {
-        super(options); // Important when extending a class.
+        super(options); 
         this.db = new Database({
             path: options.database?.path || './db',
             tables: options.database?.tables || ['main']
@@ -51,16 +51,16 @@ for (const file of eventFiles) {
 	}
 }
 
-commandsPath = path.join(__dirname, 'message')
-commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'))
+commandsPath = path.join(__dirname, 'message');
+commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-    const filePath = path.join(commandsPath, file)
-    const command = require(filePath)
+    const filePath = path.join(commandsPath, file);
+    const command = require(filePath);
     if ('data' in command && 'execute' in command) {
-        client.commandsPrefixed.set(command.data.name, command)
+        client.commandsPrefixed.set(command.data.name, command);
     } else {
-        console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`)
+        console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
     }
 }
 
-client.login(token)
+client.login(token);
