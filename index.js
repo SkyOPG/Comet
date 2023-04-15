@@ -5,7 +5,7 @@ const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 const prefix = '!';
 
-class Bot extends Client {
+class BotClient extends Client {
     constructor(options) {
         super(options); 
         this.db = new Database({
@@ -15,7 +15,7 @@ class Bot extends Client {
     }
 }
 
-const client = new Bot({
+const client = new BotClient({
     intents: ['Guilds', 'GuildMessages', 'MessageContent']
 });
 
