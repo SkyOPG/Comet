@@ -21,7 +21,7 @@ const client = new Bot({
 
 client.commands = new Collection();
 client.commandsPrefixed = new Collection()
-const foldersPath = path.join(__dirname, 'commands');
+const foldersPath = path.join(__dirname, 'interactions');
 const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
@@ -51,7 +51,7 @@ for (const file of eventFiles) {
 	}
 }
 
-commandsPath = path.join(__dirname, 'message');
+commandsPath = path.join(__dirname, 'commands');
 commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);

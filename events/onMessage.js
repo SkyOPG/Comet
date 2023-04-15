@@ -1,5 +1,5 @@
 const { Events } = require('discord.js')
-prefix = '!'
+const { prefix } = require('../discord.json')
 
 module.exports = {
     name: Events.MessageCreate,
