@@ -7,6 +7,13 @@ The new StarBot V2 is an open source bot with some features
 - ejs
 - express
 # usage
-to use this bot or ask the creator to make you a bot:
-- dm SkyOPG#0001 with the repo link
-- go through the steps and there you go
+to use this bot:
+- in console 'node deploy && node .'
+to contribute:
+- fork the bot
+- do your changes
+- wait for it to get accepted/denied
+# Pterodactyl
+To use StarBot on a pterodactyl panel you need the following:
+- shelljs
+then change the startup file to ptero.js
