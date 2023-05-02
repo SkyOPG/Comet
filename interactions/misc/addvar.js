@@ -13,13 +13,11 @@ module.exports = {
             option.setName('value')
             .setDescription('value of the variable')
             .setRequired(true)
-    )
-    .addStringOption(option =>
-        option.setName('table')
-        .setDescription('the database table')
     ),
     async execute(client, interaction){
-        await interaction.client.db.set(interaction.options.getString('varname'), interaction.options.getString('value'), 'main')
-         interaction.reply('done!')
+        const db = client.db
+        const name = interaction.options.getString('varname')
+        const value = interaction.options.getString('value')
+        await db.set(name, value).then(interaction.reply('adding'))
     }
 }

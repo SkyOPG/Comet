@@ -6,7 +6,7 @@ module.exports = {
     .setDescription('reminds you of something')
     .addStringOption(option =>
         option.setName('time')
-        .setDescription('how much time to remind you (in seconds)')
+        .setDescription('how much time to remind you ex: 10m, 20s, 10h')
         .setRequired(true))
     .addStringOption(option =>
         option.setName('message')
@@ -15,15 +15,15 @@ module.exports = {
     async execute(client, interaction){
         const text = interaction.option.getString('time')
         if(text.contains('s') === true){
-            var char = text.replace('s', '')
-            var char2 = Number(char)
-            if(char2 === 'NaN') return;
-            var remt = char2 * 1000
+            var sec = text.replace('s', '')
+            var sec2 = Number(sec)
+            if(sec2 === 'NaN') return;
+            var remt = sec2 * 1000
         } else if(text.contains('m') === true){
-            var char = text.replace('m', '')
-            var char2 = Number(char)
-            if(char2 === 'NaN') return;
-            var remt = char2 * 60000
+            var min = text.replace('m', '')
+            var min2 = Number(min)
+            if(min2 === 'NaN') return;
+            var remt = min2 * 60000
         } else if(text.contains('h') === true){
             var char = text.replace('h', '')
             var char2 = Number(char)
@@ -43,14 +43,14 @@ module.exports = {
         }).then(
        setTimeout(function(){
         interaction.reply({
-            content: `${aid}, here is the reminder!`,
+            content: `<@${aid}>, here is the reminder!`,
             embeds: [
                 new EmbedBuilder()
                 .setTitle('reminder!')
                 .setDescription(msg)
             ]
-        }, rtime)
-       })
+        })
+       }, rtime)
         )
     }
 }
