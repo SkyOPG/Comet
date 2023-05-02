@@ -1,0 +1,19 @@
+{
+    "main": {
+        "startup": "node deploy && node .",
+        "clientId": "1090224528157851678",
+        "token": "./token.json"
+    },
+    "prefix": {
+        "main": "$",
+        "secondary": "+" ,
+        "cmdsFolder": " __dirname + 'commands' "
+    },
+    "economy": {
+        "enabled": "false",
+        "ready": true,
+        "jsonDB": "./DBs/economyDB.json",
+        "sqliteDB": "./DBs/economyDB.sqlite",
+        "economyFolder": "__dirname + 'commands/economy'"
+    }
+}
