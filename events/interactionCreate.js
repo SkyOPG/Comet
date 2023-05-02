@@ -13,7 +13,7 @@ module.exports = {
 		}
 
 		try {
-			await command.execute(client, interaction);
+			await command.execute(client, interaction).then(console.log(`${interaction.commandName} was run!`));
 		} catch (error) {
 			interaction.reply({ content: 'there was an error running this command', ephemeral: true })
 			console.error(`Error executing ${interaction.commandName}`);
