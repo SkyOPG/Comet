@@ -8,8 +8,11 @@ class BotClient extends Client {
         this.db = new Database({
             path: './db',
             tables: ['main']
-        }).start();}}
-        
+        }).on('ready', () => {
+            console.log('Database is connected.')
+        })
+        this.db.start();}}
+
 const client = new BotClient({intents: ['Guilds', 'GuildMessages', 'MessageContent']});
 require('./interactions')(client)
 require('./events')(client)
