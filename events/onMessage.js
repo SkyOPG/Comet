@@ -8,14 +8,14 @@ module.exports = {
 
     const content = message.content.slice(prefix.length).split(" ");
     const args = content.slice(1);
-    const command = client.commands.get(content[0].toLowerCase());
-    if (!command) return;
+    const cmd = client.cmdsPrefixed.get(content[0].toLowerCase());
+    if (!cmd) return;
     
     try {
-        await command.execute(client, message);
+        await cmd.execute(client, message);
     } catch (error) {
-        message.reply('there was an error running this command')
-        console.error(`Error executing ${message.commandName}`);
+        message.reply('there was an error running this cmd')
+        console.error(`Error executing ${message.cmdName}`);
         console.error(error);
     }
 }
