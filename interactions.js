@@ -1,8 +1,10 @@
 const { Collection } = require('discord.js')
 const path = require('path')
 const fs = require('fs')
+const colors = require('colors')
 
 module.exports =(client)=> {
+	console.log('0--------------| Slash Commands'.blue)
     client.commands = new Collection();
 const foldersPath = path.join(__dirname, 'interactions');
 const commandFolders = fs.readdirSync(foldersPath);
@@ -15,8 +17,9 @@ for (const folder of commandFolders) {
 		const command = require(filePath);
 		if ('data' in command && 'execute' in command) {
 			client.commands.set(command.data.name, command);
+			console.log(`Loaded ${command.data.name}`.green)
 		} else {
-			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`.yellow);
 		}
 	}
 }

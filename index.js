@@ -21,6 +21,4 @@ require('./interactions')(client)
 require('./events')(client)
 require('./message')(client)
 
-// client.login('MTA5NTE3MDY3MjQ3NDQ1NjE0NQ.GDYxcq.GRPLpRAgB9ZFEZycz6YhQRFPc6GFnkvfVlCghM')
-
 client.login(token);
