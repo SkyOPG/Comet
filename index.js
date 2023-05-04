@@ -1,19 +1,8 @@
-const { Database } = require('midb');
 const { Client, GatewayIntentBits } = require('discord.js');
 const { token, prefix } = require('./config.json');
 
-class BotClient extends Client {
-    constructor(options) {
-        super(options); 
-        this.db = new Database({
-            path: './db',
-            tables: ['main']
-        }).on('ready', () => {
-            console.log('Database is connected.')
-        })
-        this.db.start();}}
 
-const client = new BotClient({intents: ['Guilds', 'GuildMessages', 'MessageContent']});
+const client = new Client({intents: ['Guilds', 'GuildMessages', 'MessageContent']});
 
 
 
