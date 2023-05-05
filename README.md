@@ -3,13 +3,14 @@ The new StarBot V2 is an open source bot with some features
 # depenedcies
 - axios
 - discord.js
-- midb
+- quick.db
 - ejs
 - express
+- colors
 # usage
 to use this bot:
-- in console 'node deploy && node .'
-to contribute:
+- in console 'npm run start'
+# contribute
 - fork the bot
 - do your changes
 - wait for it to get accepted/denied
