@@ -21,7 +21,7 @@ module.exports = {
             { name: 'AnyV4.5', value: 'anything-v4.5-pruned.ckpt [65745d25]' },
         )),
     async execute(client, interaction){
-    prodia.key("6e5c6577-78d1-48e7-b196-b68455c7c7cd");
+    prodia.key("no");
 
     const nsfwWords = fs.readFileSync('./interactions/ai/NSFW.txt', 'utf8').split('\n').map((word) => word.trim().toLowerCase());
     
@@ -37,7 +37,7 @@ module.exports = {
     
       const matches = fuzzball.extract(word, nsfwWords, { scorer: fuzzball.token_set_ratio, limit: 1 });
     
-      if (matches.length > 0 && matches[0][1] >= 80) {
+      if (matches.length > 0 && matches[0][1] >= 90) {
         interaction.reply(`"${word}" is similar to "${matches[0][0]}", which is an NSFW word. You can not generate an image with this prompt, try another!`);
         return;
       }

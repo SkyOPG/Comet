@@ -18,6 +18,7 @@
     "midb": "^2.0.0",
     "prodia-ai": "^1.12.0",
     "quick.db": "^9.1.6",
+    "quickchart-js": "^3.1.2",
     "sequelize": "^6.31.0",
     "sqlite3": "^5.1.6",
     "yarn": "^1.22.19"

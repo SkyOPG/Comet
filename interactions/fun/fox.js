@@ -6,7 +6,7 @@ module.exports = {
     .setName('fox')
     .setDescription('gets cute images of foxes with facts'),
     async execute(client, interaction){
-       const response = await axios.get("https://some-random-api.ml/animal/fox");
+       const response = await axios.get("https://some-random-api.com/animal/fox");
        await interaction.reply({
         embeds: [
             new EmbedBuilder()
