@@ -21,7 +21,7 @@ module.exports = {
             { name: 'AnyV4.5', value: 'anything-v4.5-pruned.ckpt [65745d25]' },
         )),
     async execute(client, interaction){
-    prodia.key("no");
+    prodia.key("6e5c6577-78d1-48e7-b196-b68455c7c7cd");
 
     const nsfwWords = fs.readFileSync('./interactions/ai/NSFW.txt', 'utf8').split('\n').map((word) => word.trim().toLowerCase());
     
@@ -31,7 +31,7 @@ module.exports = {
     
     for (const word of promptWords) {
       if (nsfwWords.includes(word)) {
-        await interaction.reply('You can not generate an image with this prompt, try another!');
+        await interaction.reply({content: 'You can not generate an image with this prompt, try another!', ephemeral: true});
         return;
       }
     
@@ -48,7 +48,7 @@ module.exports = {
         prompt: prompt,
         negative_prompt: "none",
         seed: -1,
-        steps: 100,
+        steps: 50,
         cfg_scale: 7,
     });
     
@@ -64,7 +64,7 @@ module.exports = {
         await interaction.followUp("generation failed!");
     }
 
-    await interaction.followUp({content:"Generation completed!", embeds: [
+    await interaction.editReply({content:"Generation completed!", embeds: [
         new EmbedBuilder()
         .setTitle(prompt)
         .setImage(job.imageUrl)

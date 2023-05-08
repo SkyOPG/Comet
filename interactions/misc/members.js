@@ -7,7 +7,7 @@ module.exports = {
 		.setDescription('Get the server member count')
 		.setDMPermission(false),
 
-	async execute(client, interaction) {
+	async execute(interaction) {
 		await interaction.deferReply();
 
             try {
