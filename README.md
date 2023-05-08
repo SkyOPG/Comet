@@ -9,6 +9,14 @@ The new StarBot V2 is an open source bot with some features
 - colors
 # usage
 to use this bot:
+make a file called `config.json` and put this inside it
+```js
+{
+   "token": "bot token",
+   "clientId": "bot id",
+   "prodia": "prodia api key"
+}
+```
 - in console 'npm run start'
 # contribute
 - fork the bot
