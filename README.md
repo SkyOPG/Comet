@@ -1,11 +1,9 @@
-# StarBot
-The new StarBot V2 is an open source bot with some features
+# Comet
+Comet is Starbot's new name, deal with it
 # depenedcies
 - axios
 - discord.js
 - quick.db
-- ejs
-- express
 - colors
 # usage
 to use this bot:
