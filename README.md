@@ -21,6 +21,6 @@ make a file called `config.json` and put this inside it
 - do your changes
 - wait for it to get accepted/denied
 # Pterodactyl
-To use StarBot on a pterodactyl panel you need the following:
+To use Comet on a pterodactyl panel you need the following:
 - shelljs
 then change the startup file to ptero.js
