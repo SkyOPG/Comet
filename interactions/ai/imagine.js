@@ -2,7 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
 const prodia = require("prodia-ai");
 const fs = require("fs");
 const fuzzball = require('fuzzball');
-const { prodia } = require('../../config.json')
+const { prodiac } = require('../../config.json')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -22,7 +22,7 @@ module.exports = {
             { name: 'AnyV4.5', value: 'anything-v4.5-pruned.ckpt [65745d25]' },
         )),
     async execute(client, interaction){
-    prodia.key(prodia);
+    prodia.key(prodiac);
 
     const nsfwWords = fs.readFileSync('./interactions/ai/NSFW.txt', 'utf8').split('\n').map((word) => word.trim().toLowerCase());
     

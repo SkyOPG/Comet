@@ -12,7 +12,8 @@ make a file called `config.json` and put this inside it
 {
    "token": "bot token",
    "clientId": "bot id",
-   "prodia": "prodia api key"
+   "prodiac": "prodia api key",
+   "mongo": "your mongodb url"
 }
 ```
 - in console 'npm run start'
