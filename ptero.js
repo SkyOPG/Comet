@@ -1,24 +1,11 @@
-// for pterodactyl panels
-console.log('starting')
 const sjs = require('shelljs')
-const input = require('./node_modules/skyopg/node-input')
 const fs = require('fs')
-const path = require('path')
-// getting ready
-console.log('getting ready')
-var files = [__dirname +'index.js', __dirname + 'deploy.js']
-function inputChoice(...args){
-    input.setTitle('Use Slash')
-    input.description('Do you want to use Slash commands for this bot? (y/n)')
-    input.accept(...args, true, false, false)
-}
-var files = fs[sjs.run(files)]
-// asking
-const choice = inputChoice(String)
-// execute the answer
-console.log('executing')
-if(choice === 'y'){
-    sjs.run('deploy.js')
-} else {
-    files.run()
-}
+
+console.log("hint: if you get the Error: Cannot find module './config.json' error, just make a file called config.json and fill it with the given details in https://github.com/SkyOPG/Comet")
+
+if (fs.existsSync(dir)) {
+    console.log('comet files exist, starting...')
+    sjs.exec('cd Comet && npm install && node deploy && node .')
+  } else {
+    sjs.exec('git clone https://github.com/SkyOPG/Comet && cd Comet && npm install && node deploy && node .')
+  }

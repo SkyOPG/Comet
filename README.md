@@ -3,8 +3,9 @@ Comet is Starbot's new name, deal with it
 # depenedcies
 - axios
 - discord.js
-- quick.db
 - colors
+- mongoose
+- canvacord
 # usage
 to use this bot:
 make a file called `config.json` and put this inside it

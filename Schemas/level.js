@@ -5,6 +5,7 @@ let levelschema = new Schema({
     User: String,
     XP: Number,
     Level: Number,
+    Background: String,
     FullXP: Number,
     SaveXP: Boolean,
     Enabled: Boolean

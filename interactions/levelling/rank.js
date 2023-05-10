@@ -32,7 +32,7 @@ module.exports = {
 
         const rank = new Canvacord.Rank()
         .setAvatar(member.displayAvatarURL({ forcestatic: true}))
-        .setBackground("IMAGE", "https://cdn.discordapp.com/attachments/1081881878304395374/1105849988292030598/1232869.jpg")
+        .setBackground("IMAGE", Data.Background)
         .setCurrentXP(Data.XP)
         .setRequiredXP(requiredXP)
         .setRank(1, "RANK", false)
