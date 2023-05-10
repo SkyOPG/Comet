@@ -1,9 +1,11 @@
 const { Events, EmbedBuilder } = require('discord.js')
+const scema = require('../Schemas/level')
 const prefix = 'b='
 
 module.exports = {
     name: Events.MessageCreate,
     async execute(client, message){
+
         if (!message.content.startsWith(prefix)) return;
 
     const content = message.content.slice(prefix.length).split(" ");
