@@ -1,4 +1,4 @@
-function randomItem(arr) {
+const hi = function randomItem(arr) {
 
     const randomIndex = Math.floor(Math.random() * arr.length);
 
@@ -7,4 +7,4 @@ function randomItem(arr) {
     return item;
 }
 
-module.exports = randomItem
+module.exports = { hi }

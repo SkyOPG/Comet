@@ -13,6 +13,3 @@ module.exports = {
         await interaction.reply(interaction.options.getString('message'))
         }
 }
-/*
-Copyright SkyOPG 2022-2023
-*/
