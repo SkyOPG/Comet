@@ -1,5 +1,4 @@
 const { Client, GatewayIntentBits } = require('discord.js');
-const { Player } = require("discord-music-player");
 const { token } = require('./config.json');
 const colors = require('colors');
 
@@ -12,12 +11,6 @@ class BotClient extends Client {
 
 
 const client = new BotClient({intents: ['Guilds', 'GuildMessages', 'MessageContent', 'GuildVoiceStates']});
-
-const player = new Player(client, {
-    leaveOnEmpty: true
-});
-
-client.player = player;
 
 
 require('./message')(client)
