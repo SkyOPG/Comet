@@ -26,7 +26,7 @@ make a file called `config.json` and put this inside it
 To use Comet on a pterodactyl panel you need the following npm packages:
 - shelljs
 
-then you need to copy the code in [ptero.js]() and make a new file called index.js in your pterodactyl server
+then you need to copy the code in [ptero.js](https://github.com/SkyOPG/Comet/blob/main/ptero.js) and make a new file called index.js in your pterodactyl server
 run your pterodactyl server
 go to the folder called `Comet` and make a new file called `config.json` with this info (make sure you put the right information):
 ```js
