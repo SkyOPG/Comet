@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, ChannelType } = require('discord.js')
-const { joinVoiceChannel } = require('@discordjs/voice')
+const { joinVoiceChannel, getVoiceConnection } = require('@discordjs/voice')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,10 +11,17 @@ module.exports = {
         .addChannelTypes(ChannelType.GuildVoice)
         .setRequired(true)),
         async execute(client, interaction){
-            const connection = joinVoiceChannel({
+            let connection = getVoiceConnection(interaction.guild.id);
+            
+            if(connection) return await interaction.reply('I\'m already in another channel');
+
+            if(!connection){
+                connection = joinVoiceChannel({
                 channelId: interaction.options.getChannel('channel').id,
                 guildId: interaction.guild.id,
                 adapterCreator: interaction.guild.voiceAdapterCreator
-            })
+            }).then(await interaction.reply('I Joined the channel!'))
+        }
+        
         }
 }
