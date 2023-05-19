@@ -18,7 +18,7 @@ module.exports = {
 		} catch (error) {
 			interaction.reply({ content: `there was an error running this command`, ephemeral: true })
 			console.error(`Error executing ${interaction.commandName}`.red);
-			console.error(error.red)
+			console.error(error)
 		}
 	},
 };

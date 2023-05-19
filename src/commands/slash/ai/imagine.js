@@ -24,7 +24,7 @@ module.exports = {
     async execute(client, interaction){
     prodia.key(prodiac);
 
-    const nsfwWords = fs.readFileSync('./interactions/ai/NSFW.txt', 'utf8').split('\n').map((word) => word.trim().toLowerCase());
+    const nsfwWords = fs.readFileSync('./src/others/NSFW.txt', 'utf8').split('\n').map((word) => word.trim().toLowerCase());
     
     const prompt = interaction.options.getString('prompt');
     
