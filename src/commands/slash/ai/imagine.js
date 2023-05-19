@@ -2,7 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
 const prodia = require("prodia-ai");
 const fs = require("fs");
 const fuzzball = require('fuzzball');
-const { prodiac } = require('../../config.json')
+const { prodiac } = require('../../../../config.json')
 
 module.exports = {
     data: new SlashCommandBuilder()

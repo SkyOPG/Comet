@@ -1,6 +1,6 @@
 const { Events } = require('discord.js');
 const mongoose = require('mongoose');
-const { mongo } = require('../config.json');
+const { mongo } = require('../../config.json');
 const colors = require('colors')
 
 module.exports = {
