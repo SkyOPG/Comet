@@ -20,6 +20,7 @@
     "ffmpeg-static": "^5.1.0",
     "fuzzball": "^2.1.2",
     "isomorphic-unfetch": "^4.0.2",
+    "meta-discord": "^0.0.2",
     "mongodb": "^5.4.0",
     "mongoose": "^6.0.2",
     "prodia-ai": "^1.12.0",

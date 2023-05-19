@@ -75,14 +75,25 @@ if(data.XP + give >= requiredXP){
     const content = message.content.slice(prefix.length).split(" ");
     const args = content.slice(1);
     const cmd = client.cmdsPrefixed.get(content[0].toLowerCase());
-    if (!cmd) return;
-    
+    const alias = client.aliases.get(content[0].toLowerCase())
+    if (!cmd || !alias) return;
+        
+    if(cmd){
     try {
-        await cmd.execute(client, message);
+        await cmd.execute(client, message, args);
     } catch (error) {
         message.reply('there was an error running this cmd')
         console.error(`Error executing ${message.cmdName}`);
         console.error(error);
     }
+} else if(alias){
+    try {
+        await alias.execute(client, message, args);
+    } catch (error) {
+        message.reply('there was an error running this cmd')
+        console.error(`Error executing ${message.cmdName}`);
+        console.error(error);
+    }
+}
 }
 }

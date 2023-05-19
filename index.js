@@ -13,8 +13,8 @@ class BotClient extends Client {
 const client = new BotClient({intents: ['Guilds', 'GuildMessages', 'MessageContent', 'GuildVoiceStates'] });
 
 
-require('./message')(client)
-require('./interactions')(client)
-require('./events')(client)
+require('./handlers/message')(client)
+require('./handlers/interactions')(client)
+require('./handlers/events')(client)
 
 client.login(token);
