@@ -61,7 +61,7 @@ if(data.XP + give >= requiredXP){
     .setDescription(randomItem(lvlUpMsgs))
     .setFooter({text: 'Comet ☄️'});
 
-    channel.reply({embeds: [embed]})
+    channel.send({embeds: [embed]})
 } else {
     data.XP += give;
     data.FullXP += give;

@@ -14,7 +14,10 @@ for (const file of cmdFiles) {
     const cmd = require(fpath);
     if ('data' in cmd && 'execute' in cmd) {
         client.cmdsPrefixed.set(cmd.data.name, cmd);
-        client.aliases.set(cmd.data.aliases, cmd);
+        cmd.data.aliases.map((thing) => {
+            client.aliases.set(thing, cmd);
+            console.log('loaded alias '+ thing)
+        })
         console.log(`Loaded ${cmd.data.name}`.green);
     } else {
         console.log(`[WARNING] The cmd at ${fpath} is missing a required "data" or "execute" property.`.yellow);
