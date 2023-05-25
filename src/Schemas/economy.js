@@ -10,7 +10,9 @@ let eco = new Schema({
     Food: Number,
     Power: Number,
     Location: String,
-    Badges: Array
+    Badges: Array,
+    Multi: Number,
+    Level: Number
 })
 
 module.exports = model('economySchema', eco)

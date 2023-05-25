@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+}
+
+.site {
+    display: flex;
+    padding: 5px;
+    margin: 10px;
+    background-color: rgb(58, 57, 57);
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+h1#sitename {
+    color: white;
+    text-align: match-parent;
+}

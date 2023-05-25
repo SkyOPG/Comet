@@ -74,5 +74,12 @@ randomItem: function(arr) {
   const item = arr[randomIndex];
 
   return item;
+},
+pathify: function(path){
+  const map = path.map(function(element){
+    const replace = element.replace('skull', "https://cdn.discordapp.com/attachments/1081881878304395374/1109253298021744660/skull.png").replace("comet", "./comet.png").replace("potato", "./potato.png")
+    return replace;
+})
+return map;
 }
 }

@@ -17,6 +17,8 @@
     "colors": "^1.4.0",
     "discord-music-player": "^9.1.1",
     "discord.js": "^14.11.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
     "ffmpeg-static": "^5.1.0",
     "fuzzball": "^2.1.2",
     "isomorphic-unfetch": "^4.0.2",
