@@ -16,9 +16,16 @@ class BotClient extends Client {
 
 const client = new BotClient({intents: ['Guilds', 'GuildMessages', 'MessageContent', 'GuildVoiceStates'] });
 
-require('./src/handlers/message')(client)
-require('./src/handlers/interactions')(client)
-require('./src/handlers/events')(client)
+const handlerPath = path.join(__dirname, './src/handlers');
+const handlerFiles = fs.readdirSync(handlerPath).filter(file => file.endsWith('.js'));
+
+for (const file of handlerFiles) {
+	const filePath = path.join(handlerPath, file);
+	const handler = require(filePath);
+	try{
+        handler.execute(client)
+    }catch{}
+}
 deploy()
 const express = require('express')
     const app = express()

@@ -3,8 +3,9 @@ const path = require('path')
 const fs = require('fs')
 const colors = require('colors')
 
-module.exports=(client)=>{
-    console.log('0--------------| Message cmds'.blue)
+module.exports={
+    execute(client){
+        console.log('0--------------| Message cmds'.blue)
     client.cmdsPrefixed = new Collection()
     client.aliases = new Collection()
 cmdsPath = path.join(__dirname, '../commands/prefixed');
@@ -23,4 +24,5 @@ for (const file of cmdFiles) {
         console.log(`[WARNING] The cmd at ${fpath} is missing a required "data" or "execute" property.`.yellow);
     }
 }
+    }
 }
