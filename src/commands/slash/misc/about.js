@@ -9,8 +9,8 @@ module.exports = {
         embeds: [
             new EmbedBuilder()
             .setTitle('About')
-            .setDescription(info)
-            .setFooter(name)
+            .setDescription(`Comet is a multipurpose bot Packed with features that was made with love by thesky#0001, it has many useful features that you ma not find in other bots`)
+            .setFooter({ text: 'Comet ☄️' })
         ]
         })
     }

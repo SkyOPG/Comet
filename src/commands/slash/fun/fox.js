@@ -17,6 +17,3 @@ module.exports = {
        })
     }
 }
-/*
-Copyright SkyOPG 2022-2023
-*/
