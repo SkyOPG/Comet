@@ -1,11 +1,11 @@
 {
-  "name": "starv2",
+  "name": "comet",
   "version": "1.0.0",
   "description": "",
-  "main": "main.cpp",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node deploy.js && node ."
+    "start": "node ."
   },
   "author": "",
   "license": "ISC",
