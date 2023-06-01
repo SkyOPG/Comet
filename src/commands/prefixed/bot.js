@@ -3,10 +3,10 @@ const { EmbedBuilder } = require('discord.js')
 module.exports = {
     data: {
         name: 'bot',
+        description: "Gives information about the bot",
         aliases: []
     },
     async execute(client, message, args){
-        console.log(client)
         const embed = new EmbedBuilder()
         .setTitle('Comet Info')
         .setDescription('Comet is a bot made by thesky#0001')

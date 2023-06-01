@@ -10,12 +10,15 @@ console.log(`Total lines in the project: ${totalLines}`.green);
 class BotClient extends Client {
     constructor(options) {
         super(options); 
+        this.deploy = () => {
+            deploy()
+        }
         
     }
 }
 
 const client = new BotClient({intents: ['Guilds', 'GuildMessages', 'MessageContent', 'GuildVoiceStates'] });
-
+client.deploy()
 const handlerPath = path.join(__dirname, './src/handlers');
 const handlerFiles = fs.readdirSync(handlerPath);
 
@@ -26,7 +29,7 @@ for (const file of handlerFiles) {
         handler.execute(client)
     }catch{}
 }
-deploy()
+
 const express = require('express')
     const app = express()
 
