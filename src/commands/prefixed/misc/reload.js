@@ -3,7 +3,8 @@ const path = require('path')
 const fs = require('fs')
 const colors = require('colors')
 
-module.exports={
+module.exports = {
+    category: 'info',
 data: {
     name: 'reload',
     aliases: []

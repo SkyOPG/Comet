@@ -1,34 +1,14 @@
-const { StringSelectMenuBuilder, StringSelectMenuOptionBuilder, ActionRowBuilder, EmbedBuilder } = require('discord.js')
-
 /*
-
+quick recap
+help-info
+help-mod
+help-fun
+help-economy
 */
 
 module.exports = {
-    data: {
-        id: 'helpmenu'
-    },
-    async execute(client, interaction){ 
-        let type;
-        if(interaction.values[0] === 'help-fun'){
-            type = 'fun';
-        } else if(interaction.values[0] === 'help-info'){
-            type = 'info';
-        } else if(interaction.values[0] === 'help-mod'){
-            type = 'mod';
-        }else if(interaction.values[0] === 'help-ai'){
-            type = 'ai'
-        }else if(interaction.values[0] === 'help-other'){
-            type = 'other'
-        }else if(interaction.values[0] === 'help-music'){
-            type = 'music'
-        }else if(interaction.values[0] === 'help-misc'){
-            type = 'misc'
-        }else if(interaction.values[0] === 'help-lvl'){
-            type = 'levelling'
-        }else if(interaction.values[0] === 'help-economy'){
-            type = 'economy'
-        }
+    select: async (type) => {
+        const { StringSelectMenuBuilder, StringSelectMenuOptionBuilder, ActionRowBuilder, EmbedBuilder } = require('discord.js')
 
         let arr = []
         if(type === 'fun'){
@@ -261,8 +241,7 @@ new StringSelectMenuOptionBuilder()
 new StringSelectMenuOptionBuilder()
             .setLabel('economy')
             .setDescription('economy commands')
-            .setValue('help-economy')
-            .setDefault(true),
+            .setValue('help-economy'),
 new StringSelectMenuOptionBuilder()
             .setLabel('levelling')
             .setDescription('levelling commands')
@@ -291,6 +270,7 @@ new StringSelectMenuOptionBuilder()
             .setLabel('ai')
             .setDescription('ai commands')
             .setValue('help-ai')
+            .setDefault(true)
         )
         const row = new ActionRowBuilder()
 			.addComponents(select);
@@ -323,8 +303,7 @@ new StringSelectMenuOptionBuilder()
 new StringSelectMenuOptionBuilder()
             .setLabel('levelling')
             .setDescription('levelling commands')
-            .setValue('help-lvl')
-            .setDefault(true),
+            .setValue('help-lvl'),
 new StringSelectMenuOptionBuilder()
             .setLabel('miscanellous')
             .setDescription('miscanellous commands')
@@ -349,6 +328,7 @@ new StringSelectMenuOptionBuilder()
             .setLabel('ai')
             .setDescription('ai commands')
             .setValue('help-ai')
+            .setDefault(true)
         )
         const row = new ActionRowBuilder()
 			.addComponents(select);
@@ -385,8 +365,7 @@ new StringSelectMenuOptionBuilder()
 new StringSelectMenuOptionBuilder()
             .setLabel('miscanellous')
             .setDescription('miscanellous commands')
-            .setValue('help-misc')
-            .setDefault(true),
+            .setValue('help-misc'),
 new StringSelectMenuOptionBuilder()
             .setLabel('music')
             .setDescription('music commands')
@@ -407,6 +386,7 @@ new StringSelectMenuOptionBuilder()
             .setLabel('ai')
             .setDescription('ai commands')
             .setValue('help-ai')
+            .setDefault(true)
         )
         const row = new ActionRowBuilder()
 			.addComponents(select);

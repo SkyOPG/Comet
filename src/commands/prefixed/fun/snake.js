@@ -1,6 +1,7 @@
 const { Snake } = require('discord-gamecord');
 
 module.exports = {
+  category: 'fun',
     data: {
         name: 'snake',
         aliases: []
@@ -25,7 +26,7 @@ const Game = new Snake({
   },
   stopButton: 'Stop',
   timeoutTime: 60000,
-  snake: { head: '🟢', body: '🟩', tail: '🟢', over: '💀' },
+  snake: { head: '👀', body: '🟩', tail: '🟢', over: '💀' },
   foods: ['🍎', '🍇', '🍊', '🫐', '🥕', '🥝', '🌽'],
   playerOnlyMessage: 'Only {player} can use these buttons.'
 });

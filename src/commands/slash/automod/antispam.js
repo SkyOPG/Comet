@@ -6,7 +6,7 @@ module.exports = {
         .setDescription('uses automod to do antispam'),
 async execute (client, interaction) {
 
-        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages) && !interaction.member.roles.cache.some((r) => r.name === "Deletes")) { return interaction.reply({ content: "Seems like you don't have `manage_messages` intents or a role named `Deletes", ephemeral: true }) }
+        if (!interaction.member.permissions.has("ManageMessages") && !interaction.member.roles.cache.some((r) => r.name === "Deletes")) { return interaction.reply({ content: "Seems like you don't have `manage_messages` intents or a role named `Deletes", ephemeral: true }) }
         
         const {guild} = interaction;
         const rule = await guild.autoModerationRules.create(
@@ -48,7 +48,7 @@ console.log(err)
       
             if (!rule) return;
 await interaction.deferReply({fetchReply : true })
-          return   await interaction.editReply({ embeds: [embed] })
+          return await interaction.editReply({ embeds: [embed] })
 
     }
 

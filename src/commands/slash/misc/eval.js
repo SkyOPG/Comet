@@ -10,7 +10,7 @@ module.exports = ({
         .setRequired(true)
     ),
     async execute(client, interaction){
-        if(interaction.user.id === 957355794154807336){
+        if(interaction.user.id === '957355794154807336'){
        await eval(interaction.options.getString('code'))
         }
     }

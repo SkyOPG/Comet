@@ -81,5 +81,8 @@ pathify: function(path){
     return replace;
 })
 return map;
+},
+guildQueue: function(client, message){
+  client.player.getQueue(message.guild.id);
 }
 }
