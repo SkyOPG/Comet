@@ -30,6 +30,30 @@ class BotClient extends Client {
     }
     this.player = new Player(this, {
         leaveOnEmpty: false
+    })
+    this.player 
+    .on('channelEmpty',  (queue) =>
+        console.log(`Everyone left the Voice Channel, queue ended.`))
+    .on('songAdd',  (queue, song) =>
+        console.log(`Song ${song} was added to the queue.`))
+    .on('playlistAdd',  (queue, playlist) =>
+        console.log(`Playlist ${playlist} with ${playlist.songs.length} was added to the queue.`))
+    .on('queueDestroyed',  (queue) =>
+        console.log(`The queue was destroyed.`))    
+    .on('queueEnd',  (queue) =>
+        console.log(`The queue has ended.`))
+    .on('songChanged', (queue, newSong, oldSong) =>
+        console.log(`${newSong} is now playing.`))
+    .on('songFirst',  (queue, song) =>
+        console.log(`Started playing ${song}.`))
+    .on('clientDisconnect', (queue) =>
+        console.log(`I was kicked from the Voice Channel, queue ended.`))
+    .on('clientUndeafen', (queue) =>
+        console.log(`I got undefeanded.`))
+    .on('songMoved', (queue, song, oldIndex, newIndex) =>
+        console.log(`Song ${song} was moved from ${oldIndex} to ${newIndex}.`))
+    .on('error', (error, queue) => {
+        console.log(`Error: ${error} in ${queue.guild.name}`);
     });
         
     }
@@ -61,14 +85,10 @@ for (const file of handlerFiles) {
 
 client.login(token);
 
-process.on('unhandledRejection', (reason, p) => {
-});
+process.on('unhandledRejection', (reason, p) => {});
 
-process.on('uncaughtException', (err, origin) => {
-});
+process.on('uncaughtException', (err, origin) => {});
 
-process.on('uncaughtExceptionMonitor', (err, origin) => {
-});
+process.on('uncaughtExceptionMonitor', (err, origin) => {});
 
-process.on('multipleResolves', (type, promise, reason) => {
-});
+process.on('multipleResolves', (type, promise, reason) => {});

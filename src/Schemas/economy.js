@@ -6,7 +6,28 @@ let eco = new Schema({
     Stars: Number,
     Tokens: Number,
     Password: String,
-    Items: Array,
+    Items: {
+        Collectables: {
+            Common: Array,
+            Uncommon: Array,
+            Rare: Array,
+            RarePlus: Array,
+            Legenedary: Array,
+            Space: Array,
+            SpacePlus: Array,
+            Universe: Array
+        },
+        Sellables: {
+            Common: Array,
+            Uncommon: Array,
+            Rare: Array,
+            RarePlus: Array,
+            Legenedary: Array,
+            Space: Array,
+            SpacePlus: Array,
+            Universe: Array
+        }
+    },
     Food: Number,
     Power: Number,
     Location: String,

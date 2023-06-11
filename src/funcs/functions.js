@@ -82,7 +82,8 @@ pathify: function(path){
 })
 return map;
 },
-guildQueue: function(client, message){
-  client.player.getQueue(message.guild.id);
+getGuildQueue: async function(client, message){
+  const data = await client.player.getQueue(message.guild.id);
+  return data;
 }
 }

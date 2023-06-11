@@ -32,8 +32,4 @@ const Game = new Snake({
 });
 
 Game.startGame();
-Game.on('gameOver', result => {
-  console.log(result);
-});
-    }
-}
+Game.on('gameOver', result => { message.channel.send( { embeds: [ new EmbedBuilder() .setTitle(result.result) .addFields( { name: "score", value: result.score } ) ] } ) } ) } }

@@ -8,7 +8,7 @@ module.exports = {
         message.reply({ embeds: [new EmbedBuilder()
             .setTitle('Ping')
             .setDescription(`\`\`\`${client.ws.ping}ms\`\`\``)
-            .setColor('Blurple')
+            .setColor('Blue')
     ]
     })
     }

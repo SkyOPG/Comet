@@ -1,7 +1,8 @@
 const { EmbedBuilder, PermissionsBitField } = require ('@discordjs/builders');
 
 module.exports = {
-        data: {
+    category: 'mod',
+            data: {
             name: 'antispam',
             aliases: ['as']
         },
