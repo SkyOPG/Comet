@@ -3,8 +3,41 @@ const { clientId, token } = require('../../config.json');
 const fs = require('fs');
 const path = require('path');
 const colors = require('colors')
+const { BotClient } = require('../structs/client')
+const bot = new BotClient();
 
-module.exports = { 
+module.exports = {
+  BClient: bot,
+  dashStart: async function(){
+    const { dash } = require('../Dashboard/index')
+    dash();
+  },
+  botStart: async function(){
+console.log('0--------------| Comet |--------------0'.blue);
+client = bot;
+
+client.deploy()
+const handlerPath = path.join(__dirname, '../handlers');
+const handlerFiles = fs.readdirSync(handlerPath);
+
+for (const file of handlerFiles) {
+	const filePath = path.join(handlerPath, file);
+	const handler = require(filePath);
+	try{
+        handler.execute(client)
+    }catch{}
+}
+
+client.login(token);
+
+process.on('unhandledRejection', (reason, p) => {});
+
+process.on('uncaughtException', (err, origin) => {});
+
+process.on('uncaughtExceptionMonitor', (err, origin) => {});
+
+process.on('multipleResolves', (type, promise, reason) => {});
+  },
   deploy:function(){
     console.log('0-----------| Slash Register'.blue)
     const commands = [];
