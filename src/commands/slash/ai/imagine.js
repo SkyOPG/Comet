@@ -20,6 +20,8 @@ module.exports = {
             { name: 'Lyriel', value: 'lyriel_v15.safetensors [65d547c5]' },
             { name: 'AnyV3', value: 'anythingv3_0-pruned.ckpt [2700c435]' },
             { name: 'AnyV4.5', value: 'anything-v4.5-pruned.ckpt [65745d25]' },
+            { name: 'AnyV5', value: 'anythingV5_PrtRE.safetensors [893e49b9]' },
+            { name: 'AnalogV1.0', value: 'analog-diffusion-1.0.ckpt [9ca13f02]' },
         )),
     async execute(client, interaction){
     prodia.key(prodiac);
