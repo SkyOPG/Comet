@@ -1,4 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
+const answers = ["yes", "no", "maybe"];
 
 const cmd = {
     category: "fun",

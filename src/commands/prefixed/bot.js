@@ -9,11 +9,8 @@ module.exports = {
     async execute(client, message, args){
         const embed = new EmbedBuilder()
         .setTitle('Comet Info')
-        .setDescription('Comet is a bot made by thesky#0001')
-        .addFields({ name: 'Slash Commands', value: `\`${client.commands.size}\``, inline: true },
-        { name: 'Prefix Commands', value: `\`${client.cmdsPrefixed.size}\``, inline: true },
-        { name: 'Users', value: `\`${client.users.cache.size}\``, inline: true },
-        { name: 'Guilds', value: `\`${client.guilds.cache.size}\``, inline: true })
+        .setThumbnail(client.user.displayAvatarURL())
+        .setDescription(`Comet Is a multipurpose bot with many useful features\n\n**Stats**\n\n> Slash Commands: \`${client.commands.size}\`\n> Prefixed Commands: \`${client.cmdsPrefixed.size}\`\n> Users: \`${client.users.cache.size}\`\n> Guilds: \`${client.guilds.cache.size}\``)
         message.reply({ embeds: [embed] })
     }
 }

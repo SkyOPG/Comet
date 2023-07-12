@@ -33,18 +33,13 @@ async execute (client, message) {
                     }
                 ]
 
-            }).catch(async err => {
-               
-console.log(err)
-            })
+            }).catch(async err => { await message.channel.send("your automod rule already exists, please delete it and try again") })
 
         const embed = new EmbedBuilder()
           
         .setAuthor({name: `${message.guild.name}`, iconURL: message.guild.iconURL()})
-        .setDescription(`**Your automod rule for \`spam messages\` has been created successfully**`)
-        .setThumbnail(message.user.displayAvatarURL({dynamic: true}))
         .setColor('#5865F2')
-        .setFooter({text: `Created by: ${message.user.id}`, iconURL: message.user.avatarURL()})
+        .setFooter({text: `Created by: ${message.user.id}`})
         .setTimestamp();
 
       

@@ -1,4 +1,4 @@
-const { EmbedBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, ActionRowBuilder } = require('discord.js')
+const { EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, ComponentType } = require('discord.js')
 
 module.exports = {
     category: 'info',
@@ -7,57 +7,59 @@ module.exports = {
         aliases: ['h']
     },
     async execute(client, message, args){
-        const embed = new EmbedBuilder()
-        .setTitle('Help')
-        .setDescription('Comet is a multipurpose bot with many features, so go check them out!')
-        const select = new StringSelectMenuBuilder()
-        .setCustomId('helpmenu')
-        .setPlaceholder('Select Something...')
-        .addOptions(
-            new StringSelectMenuOptionBuilder()
-            .setLabel('mod')
-            .setDescription('mod commands')
-            .setValue('help-mod'),
-new StringSelectMenuOptionBuilder()
-            .setLabel('economy')
-            .setDescription('economy commands')
-            .setValue('help-economy'),
-new StringSelectMenuOptionBuilder()
-            .setLabel('levelling')
-            .setDescription('levelling commands')
-            .setValue('help-lvl'),
-new StringSelectMenuOptionBuilder()
-            .setLabel('miscanellous')
-            .setDescription('miscanellous commands')
-            .setValue('help-misc'),
-new StringSelectMenuOptionBuilder()
-            .setLabel('music')
-            .setDescription('music commands')
-            .setValue('help-music'),
-new StringSelectMenuOptionBuilder()
-            .setLabel('other')
-            .setDescription('other commands')
-            .setValue('help-other'),
-            new StringSelectMenuOptionBuilder()
-            .setLabel('fun')
-            .setDescription('fun commands')
-            .setValue('help-fun'),
-            new StringSelectMenuOptionBuilder()
-            .setLabel('info')
-            .setDescription('info commands')
-            .setValue('help-info'),
-            new StringSelectMenuOptionBuilder()
-            .setLabel('ai')
-            .setDescription('ai commands')
-            .setValue('help-ai')
-            .setDefault(true)
-        )
+        const arr = new Array();
+        client.cmdsPrefixed.map((value, index, array) => {
+            arr.push(`\`${value.data.name}\``)
+        })
+        const cmds = arr.join(", ")
+        const allCmds = new EmbedBuilder()
+        .setTitle('All Commands')
+        .setDescription(cmds);
+        const ovr = new EmbedBuilder()
+        .setTitle("Help")
+        .setColor("Blue")
+        .setThumbnail(client.user.displayAvatarURL())
+        .setDescription("Hello! I'm Comet, a multipurpose discord bot with the goal of being a useful bot for every type of server, i'm currently at the indev phase but i can be invited/used!\n\n**Changelogs:**\n> **V2.0.0-a0.12.2**\n> - Fixed 47 different bugs");
         const row = new ActionRowBuilder()
-			.addComponents(select);
-
-		message.reply({
-			embeds: [embed],
-			components: [row]
+        .addComponents(
+            new ButtonBuilder()
+            .setLabel("Home")
+            .setCustomId("home")
+            .setEmoji('🏠')
+            .setStyle(ButtonStyle.Secondary),
+            new ButtonBuilder()
+            .setLabel("All Commands")
+            .setCustomId("cmds")
+            .setEmoji('📃')
+            .setStyle(ButtonStyle.Secondary)
+        )
+		const msg = await message.channel.send({
+			embeds: [ovr],
+            components: [row]
 		})
+        const collector = await msg.createMessageComponentCollector({ 
+             filter: (i) => (i.isButton() || i.isSelectMenu()) && i.user && i.message.author.id == client.user.id,
+             time: 180e3 
+            });
+
+        collector.on('collect', async b => {
+            try{
+	            if (b.user.id !== message.user.id) return msg.reply({ content: "This is not your button", ephemeral: true });
+       
+                switch(b.customId){
+                    case "home":
+                        await msg.reply({ embeds: [ovr], components: [row], ephemeral: true }).catch(async d => {});
+                        b.deferUpdate();
+                    break;
+                    case "cmds":
+                        await msg.reply({ embeds: [allCmds], components: [row], ephemeral: true }).catch(async d => {})
+                        b.deferUpdate();
+                    break;
+                    default:
+                        await message.channel.send(b.customId);
+                    break;
+            }
+        } catch(err){}
+        });
+}       
     }
-}

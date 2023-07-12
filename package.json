@@ -21,7 +21,7 @@
   "name": "comet",
   "description": "Comet is an advanced multifunctional bot\r # depenedcies\r - axios\r - discord.js\r - colors\r - mongoose\r - canvacord\r # usage\r to use this bot:\r make a file called `config.json` and put this inside it\r ```js\r {\r    \"token\": \"bot token\",\r    \"clientId\": \"bot id\",\r    \"prodiac\": \"prodia api key\",\r    \"mongo\": \"your mongodb url\"\r }\r ```\r - in console 'npm run start'\r # contribute\r - fork the bot\r - do your changes\r - wait for it to get accepted/denied\r # Pterodactyl\r To use Comet on a pterodactyl panel you need the following npm packages:\r - shelljs",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

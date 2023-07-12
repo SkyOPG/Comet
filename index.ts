@@ -1,4 +1,4 @@
-const { botStart, dashStart } = require('./src/funcs/functions');
+const { botStart } = require('./src/funcs/functions');
 const express = require('express');
 const app = express();
 const port = 3000;
