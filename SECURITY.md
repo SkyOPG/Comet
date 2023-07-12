@@ -5,4 +5,4 @@ We are currently allowing security updates!
 
 ## Reporting a Vulnerability
 
-Report a vulnerability in the Security section or in the discord!
+Report a vulnerability in the discord!
