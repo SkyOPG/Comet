@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js')
-const economy = require('../../../Schemas/economy')
+const economy = require('../../Schemas/economy')
 
 module.exports = {
     category: 'economy',

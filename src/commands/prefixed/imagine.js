@@ -1,8 +1,8 @@
 const { EmbedBuilder } = require('discord.js')
-const prodia = require("prodia-ai");
+const ProdiaAI = require("prodia-ai");
 const fs = require("fs");
 const fuzzball = require('fuzzball');
-const { prodiac } = require('../../../../config.json')
+const { prodiac } = require('../../../config.json')
 
 module.exports = {
     category: 'ai',
@@ -11,7 +11,9 @@ module.exports = {
         aliases: []
     },
     async execute(client, message, args) {
-        prodia.key(prodiac)
+        const prodia = new ProdiaAI({
+            key: prodiac
+          })
 
         var model;
 

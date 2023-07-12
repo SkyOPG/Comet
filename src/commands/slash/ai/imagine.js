@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
-const prodia = require("prodia-ai");
+const ProdiaAI = require("prodia-ai");
 const fs = require("fs");
 const fuzzball = require('fuzzball');
 const { prodiac } = require('../../../../config.json')
@@ -24,7 +24,9 @@ module.exports = {
             { name: 'AnalogV1.0', value: 'analog-diffusion-1.0.ckpt [9ca13f02]' },
         )),
     async execute(client, interaction){
-    prodia.key(prodiac);
+        const prodia = new ProdiaAI({
+            key: prodiac
+          })
 
     const nsfwWords = fs.readFileSync('./src/others/NSFW.txt', 'utf8').split('\n').map((word) => word.trim().toLowerCase());
     

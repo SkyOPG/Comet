@@ -1,6 +1,6 @@
 const { Hangman } = require('discord-gamecord');
 const { EmbedBuilder } = require('discord.js')
-const { randomItem } = require('../../../funcs/functions');
+const { randomItem } = require('../../funcs/functions');
 let themes = [ "nature", "sport", "color", "camp", "fruit", "discord", "winter", "pokemon" ]
 let theme = randomItem(themes)
 module.exports = {

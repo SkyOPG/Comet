@@ -1,6 +1,5 @@
-const { EmbedBuilder } = require('discord.js')
-const economy = require('../../../Schemas/economy')
-const { error, initials } = require('../../../funcs/embeds')
+const economy = require('../../Schemas/economy')
+const { error, initials } = require('../../funcs/embeds')
 
 module.exports = {
     category: 'economy',
@@ -10,7 +9,7 @@ module.exports = {
     },
     async execute(client, message, args){
         let user;
-        if(!message.mentions.members.first()){ user = message.author } else { user = message.mentions.members.first() }
+         user = message.author
         const data = await economy.findOne({ User: user.id })
         const { bal } = error;
         if(!data) return message.channel.send({ embeds: [bal] })

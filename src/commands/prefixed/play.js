@@ -1,4 +1,4 @@
-const { getGuildQueue } = require('../../../funcs/functions')
+const { getGuildQueue } = require('../../funcs/functions')
 const { EmbedBuilder } = require('discord.js')
 
 module.exports = {
