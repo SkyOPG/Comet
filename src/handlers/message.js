@@ -3,17 +3,14 @@ const path = require('path')
 const fs = require('fs')
 const colors = require('colors')
 
-module.exports=
-{
+module.exports= {
     execute: (client) => {
         console.log('0--------------| Message cmds'.blue)
 const foldersPath = path.join(__dirname, '../commands/prefixed');
 const cmdFiles = fs.readdirSync(foldersPath);
 for (const file of cmdFiles) {
     const fpath = path.join(foldersPath, file);
-    console.log(fpath);
     const cmd = require(`../commands/prefixed/${file}`);
-    console.log(cmd);
         client.cmdsPrefixed.set(cmd.data.name, cmd);
         cmd.data.aliases.map((thing) => {
             client.aliases.set(thing, cmd);
@@ -23,3 +20,4 @@ for (const file of cmdFiles) {
 }
     }
 }
+// 4592

@@ -1,4 +1,5 @@
 const { EmbedBuilder } = require('discord.js')
+const { getMembers } = require('../../funcs/functions')
 
 module.exports = {
     category: 'info',
@@ -10,7 +11,7 @@ module.exports = {
         const embed = new EmbedBuilder()
         .setTitle('Comet Info')
         .setThumbnail(client.user.displayAvatarURL())
-        .setDescription(`Comet Is a multipurpose bot with many useful features\n\n**Stats**\n\n> Slash Commands: \`${client.commands.size}\`\n> Prefixed Commands: \`${client.cmdsPrefixed.size}\`\n> Users: \`${client.users.cache.size}\`\n> Guilds: \`${client.guilds.cache.size}\``)
+        .setDescription(`Comet Is a multipurpose bot with many useful features\n\n**Stats**\n\n> Slash Commands: \`${client.commands.size}\`\n> Prefixed Commands: \`${getMembers(client)}\`\n> Guilds: \`${client.guilds.cache.size}\``)
         message.reply({ embeds: [embed] })
     }
 }

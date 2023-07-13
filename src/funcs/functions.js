@@ -118,5 +118,13 @@ return map;
 getGuildQueue: async function(client, message){
   const data = await client.player.getQueue(message.guild.id);
   return data;
+},
+getMembers: function(client){
+      let c = 0;
+			client.guilds.cache.map((a) => {
+				const b = Number(a.memberCount)
+				c = b + c;
+			})
+      return c;
 }
 }
