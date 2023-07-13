@@ -27,10 +27,8 @@ module.exports = {
         const prodia = new ProdiaAI({
             key: prodiac
           })
-
+          const prompt = interaction.options.getString('prompt');
     const nsfwWords = fs.readFileSync('./src/others/NSFW.txt', 'utf8').split('\n').map((word) => word.trim().toLowerCase());
-    
-    const prompt = interaction.options.getString('prompt');
     
     const promptWords = prompt.toLowerCase().split(' ');
     
@@ -47,15 +45,17 @@ module.exports = {
         return;
       }
     }
+const prodia_job =  {
+    model: interaction.options.getString('model'),
+    prompt: prompt,
+    negative_prompt: "none",
+    seed: -1,
+    steps: 50,
+    cfg_scale: 7,
+}
 
-    let job = await prodia.createJob({
-        model: interaction.options.getString('model'),
-        prompt: prompt,
-        negative_prompt: "none",
-        seed: -1,
-        steps: 50,
-        cfg_scale: 7,
-    });
+
+    let job = await prodia.createJob(prodia_job);
     
     await interaction.reply(`generating... prompt:**${prompt}**`)
 

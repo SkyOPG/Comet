@@ -34,7 +34,7 @@ module.exports = {
             .setStyle(ButtonStyle.Secondary)
         )
 		const msg = await message.channel.send({
-			embeds: [ovr],
+			embeds: [allCmds],
             components: [row]
 		})
         const collector = await msg.createMessageComponentCollector({ 
