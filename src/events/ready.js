@@ -8,9 +8,7 @@ module.exports = {
 	name: Events.ClientReady,
 	once: true,
 	async execute(client) {
-		console.log(`Ready! Logged in as ${client.user.tag}`.blue);
-
-		console.log('0--------------| Database'.blue)
+		console.log('0-----------| Post Initialization'.blue)
 		if(!mongo) return;
 
 		await mongoose.connect(mongo, {
@@ -20,8 +18,12 @@ module.exports = {
 		})
 		
 		if(mongoose.connect){
-			console.log('[DB] Up and Running!'.green)
+			console.log('[PI] Database Initialized!'.green)
 		}
+		setTimeout(() => {
+			console.log(`[INIT] Bot initialized`.green);
+			console.log(`[INF] ${getMembers(client)} members and ${client.guilds.cache.size}`.green)
+		}, 3500)
 		setInterval(() => {
 			let c = 0;
 			client.guilds.cache.map((a) => {
@@ -30,5 +32,6 @@ module.exports = {
 			})
             client.user.setPresence({ activities: [{ name: `${getMembers(client)} users`}], status: 'idle' });
         }, 12000)
+		console.log("[PI] Cleaning up".green)
 	}
 };

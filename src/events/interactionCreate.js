@@ -1,5 +1,6 @@
 const { Events } = require('discord.js');
-const colors = require('colors')
+const colors = require('colors');
+const schema = require('../Schemas/Files')
 
 module.exports = {
 	name: Events.InteractionCreate,
@@ -138,6 +139,24 @@ module.exports = {
 			console.error(`Error executing ${interaction.customId}`.red);
 			console.error(error)
 		}
+		} else if(interaction.isModalSubmit()){
+			const code = interaction.fields.getTextInputValue('code');
+			const file = interaction.fields.getTextInputValue('file');
+			const data = schema.findOne({ Filename: file, Owner: interaction.user.id })
+			if(data){
+				await schema.findOneAndUpdate({ Filename: file }, {
+					FileData: {
+						Code: code
+					}
+				}, {}, async (err, doc, res) => {
+					if(err) console.error(err);
+					await interaction.reply({ content: "Saved!" });
+				});
+			} else {
+				
+			await interaction.reply({ content: "error", ephemeral: true })
+			}
+            
 		}
 	}
 }

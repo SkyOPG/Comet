@@ -35,8 +35,6 @@ process.on('unhandledRejection', (reason, p) => {});
 process.on('uncaughtException', (err, origin) => {});
 
 process.on('uncaughtExceptionMonitor', (err, origin) => {});
-
-process.on('multipleResolves', (type, promise, reason) => {});
   },
   deploy:function(){
     console.log('0-----------| Slash Register'.blue)
@@ -51,7 +49,6 @@ process.on('multipleResolves', (type, promise, reason) => {});
         const filePath = path.join(commandsPath, file);
         const command = require(filePath);
         if ('data' in command && 'execute' in command) {
-          console.log(`Loaded ${file}`.green)
           commands.push(command.data.toJSON());
         } else {
           console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
@@ -63,14 +60,12 @@ process.on('multipleResolves', (type, promise, reason) => {});
     
     (async () => {
       try {
-        console.log(`Started refreshing ${commands.length} application (/) commands.`.yellow);
+        console.log(`[REG] Registered ${commands.length} Slash commands.`.yellow);
     
         const data = await rest.put(
           Routes.applicationCommands(clientId),
           { body: commands },
         );
-    
-        console.log(`Successfully reloaded ${data.length} application (/) commands.`.green);
       } catch (error) {
         console.error(error);
       }
@@ -126,5 +121,14 @@ getMembers: function(client){
 				c = b + c;
 			})
       return c;
+},
+findThumbnail: function(file){
+  if(file.endsWith(".js")){
+    return "https://cdn.discordapp.com/attachments/1128839554447716382/1129221123024900096/javascript-g698e8f30f_640.png"
+  } else if(file.endsWith(".ss")){
+    return "https://cdn.discordapp.com/attachments/1128839554447716382/1129224232975482930/SkyScript.png"
+  } else {
+    return null;
+  }
 }
 }

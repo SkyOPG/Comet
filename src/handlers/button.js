@@ -14,10 +14,10 @@ for (const file of btnFiles) {
     const btn = require(fipath);
     if ('data' in btn && 'execute' in btn) {
         client.button.set(btn.data.id, btn);
-        console.log(`Loaded ${btn.data.id}`.green);
     } else {
         console.log(`[WARNING] The btn at ${fipath} is missing a required "data" or "execute" property.`.yellow);
     }
 }
+console.log(`[BTNS] Loaded ${client.button.size} buttons`.green);
     }
 }

@@ -14,9 +14,10 @@ for (const file of selectFiles) {
     const select = require(filpath);
     if ('data' in select && 'execute' in select) {
         client.select.set(select.data.id, select);
-        console.log(`Loaded ${select.data.id}`.green);
     } else {
         console.log(`[WARNING] The select at ${filpath} is missing a required "data" or "execute" property.`.yellow);
     }
-}}
+}
+console.log(`[SLCT] Loaded ${client.select.size} Select menus!`.green)
+}
 }

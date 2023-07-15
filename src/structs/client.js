@@ -33,7 +33,6 @@ module.exports = {
                         const filePath = path.join(commandsPath, file);
                         const command = require(filePath);
                         if ('data' in command && 'execute' in command) {
-                          console.log(`Loaded ${file}`.green)
                           commands.push(command.data.toJSON());
                         } else {
                           console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
@@ -45,14 +44,13 @@ module.exports = {
                     
                     (async () => {
                       try {
-                        console.log(`Started refreshing ${commands.length} application (/) commands.`.yellow);
+                        console.log(`[REG] Registered ${commands.length} Slash commands.`.green);
                     
                         const data = await rest.put(
                           Routes.applicationCommands(clientId),
                           { body: commands },
                         );
                     
-                        console.log(`Successfully reloaded ${data.length} application (/) commands.`.green);
                       } catch (error) {
                         console.error(error);
                       }

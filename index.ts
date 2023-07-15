@@ -17,7 +17,8 @@ app.use('/', indexRoute);
 
 // Start the server and login the bot
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log('0--------------| Dashboard'.blue)
+  console.log(`Dashboard running on localhost:${port}`);
 });
 }
 main()

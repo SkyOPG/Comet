@@ -14,7 +14,9 @@ module.exports = {
         const cmds = arr.join(", ")
         const allCmds = new EmbedBuilder()
         .setTitle('All Commands')
-        .setDescription(cmds);
+        .setThumbnail(client.user.displayAvatarURL())
+        .setDescription(cmds)
+        .setColor("Blue");
         const ovr = new EmbedBuilder()
         .setTitle("Help")
         .setColor("Blue")
@@ -34,32 +36,33 @@ module.exports = {
             .setStyle(ButtonStyle.Secondary)
         )
 		const msg = await message.channel.send({
-			embeds: [allCmds],
+			embeds: [ovr],
             components: [row]
 		})
         const collector = await msg.createMessageComponentCollector({ 
-             filter: (i) => (i.isButton() || i.isSelectMenu()) && i.user && i.message.author.id == client.user.id,
+             filter: (i) => i.user && i.message.author.id == client.user.id,
              time: 180e3 
             });
 
-        collector.on('collect', async b => {
+        const mod = collector.on('collect', async (b) => {
             try{
-	            if (b.user.id !== message.user.id) return msg.reply({ content: "This is not your button", ephemeral: true });
-       
+                if(!b.isButton())return;       
                 switch(b.customId){
                     case "home":
-                        await msg.reply({ embeds: [ovr], components: [row], ephemeral: true }).catch(async d => {});
-                        b.deferUpdate();
+                        await msg.edit({ embeds: [ovr], components: [row], ephemeral: true }).catch(async d => {});
+                        b.deferUpdate().catch(async d => {});
                     break;
                     case "cmds":
-                        await msg.reply({ embeds: [allCmds], components: [row], ephemeral: true }).catch(async d => {})
-                        b.deferUpdate();
+                        await msg.edit({ embeds: [allCmds], components: [row], ephemeral: true }).catch(async d => {})
+                        b.deferUpdate().catch(async d => {});
                     break;
                     default:
                         await message.channel.send(b.customId);
                     break;
             }
-        } catch(err){}
+        } catch(err){
+            console.error(err);
+        }
         });
 }       
     }

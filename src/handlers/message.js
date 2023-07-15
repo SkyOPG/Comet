@@ -5,6 +5,7 @@ const colors = require('colors')
 
 module.exports= {
     execute: (client) => {
+        const aliases = []
         console.log('0--------------| Message cmds'.blue)
 const foldersPath = path.join(__dirname, '../commands/prefixed');
 const cmdFiles = fs.readdirSync(foldersPath);
@@ -14,10 +15,10 @@ for (const file of cmdFiles) {
         client.cmdsPrefixed.set(cmd.data.name, cmd);
         cmd.data.aliases.map((thing) => {
             client.aliases.set(thing, cmd);
-            console.log('loaded alias '+ thing)
+            aliases.push(thing);
         })
-        console.log(`Loaded ${cmd.data.name} | ${cmd.category}`.green);
 }
+console.log(`[CMDS] Loaded ${client.cmdsPrefixed.size} Commands and ${aliases.length} Aliases!`.green)
     }
 }
 // 4592
