@@ -5,7 +5,7 @@ const colors = require('colors')
 
 module.exports ={
 	execute(client){
-		console.log('0--------------| Slash Commands'.blue)
+	console.log('0--------------| Slash Commands'.blue)
     client.commands = new Collection();
 const foldersPath = path.join(__dirname, '../commands/slash');
 const commandFolders = fs.readdirSync(foldersPath);

@@ -1,12 +1,11 @@
-const { Collection } = require('discord.js')
 const path = require('path')
 const fs = require('fs')
 const colors = require('colors')
 
 module.exports= {
     execute: (client) => {
-        const aliases = []
-        console.log('0--------------| Message cmds'.blue)
+const aliases = []
+console.log('0--------------| Message cmds'.blue)
 const foldersPath = path.join(__dirname, '../commands/prefixed');
 const cmdFiles = fs.readdirSync(foldersPath);
 for (const file of cmdFiles) {

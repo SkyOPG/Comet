@@ -1,7 +1,9 @@
 const { botStart } = require('./src/funcs/functions');
 const express = require('express');
+const cookie = require('cookie-parser')
 const app = express();
 const port = 3000;
+const colors = require('colors');
 
 async function main(){ 
     await botStart();
@@ -9,6 +11,7 @@ async function main(){
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(cookie());
 app.set('view engine', 'ejs');
 
 // Routes

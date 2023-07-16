@@ -21,6 +21,7 @@ module.exports = {
 			console.log('[PI] Database Initialized!'.green)
 		}
 		setTimeout(() => {
+			getMembers(client)
 			console.log(`[INIT] Bot initialized`.green);
 			console.log(`[INF] ${getMembers(client)} members and ${client.guilds.cache.size}`.green)
 		}, 3500)

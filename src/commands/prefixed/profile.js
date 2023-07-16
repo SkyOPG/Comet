@@ -1,22 +1,13 @@
-const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js')
+const { AttachmentBuilder } = require('discord.js')
 const meta = require('meta-discord')
-const { pathify } = require('../../../funcs/functions')
 
 module.exports = {
-    data: new SlashCommandBuilder()
-    .setName('profile')
-    .setDescription('shows your profile')
-    .addUserOption(option =>
-        option.setName('user')
-        .setDescription('the user you want to check')
-        .setRequired(true)),
-    async execute(client, interaction){
-        console.log(interaction)
-        const { user } = interaction;
-
-        await interaction.deferReply()
-try{
-        const ide = interaction.options.getUser('user').id
+    data: {
+        name: "profile",
+        aliases: []
+    },
+    async execute(client, message, args){
+        console.log(message.mentions)
 
         if(ide === '849283841583743036'){
             const buffer = await meta.profileImage(ide, {
@@ -28,7 +19,7 @@ try{
                });
                const image = new AttachmentBuilder(buffer, { name: 'profile.png' });
 
-               await interaction.editReply({ files: [image] })
+               await message.edit({ files: [image] })
                 } else if(ide === client.user.id){
                     const buffer = await meta.profileImage(ide, {
                         customTag: "Comet",
@@ -38,7 +29,7 @@ try{
                        });
                        const image = new AttachmentBuilder(buffer, { name: 'profile.png' });
     
-                       await interaction.editReply({ files: [image] })
+                       await message.editReply({ files: [image] })
                 } else {
                     const buffer = await meta.profileImage(ide, {
                         customTag: "User",
@@ -47,6 +38,7 @@ try{
                        });
                        const image = new AttachmentBuilder(buffer, { name: 'profile.png' });
     
-                       await interaction.editReply({ files: [image] })
-                }} catch {}
-            }}
+                       await message.editReply({ files: [image] })
+                }
+            }
+        }
