@@ -7,6 +7,6 @@ export default {
     enabled: true, // TODO: add enabled flag
     permissions: [], // TODO: type checking for permissions
     execute: (_client: Client<boolean>, message: Message<boolean>, _args: string[]) => {
-        message.reply("pong");
+        return message.reply("pong");
     }
 }

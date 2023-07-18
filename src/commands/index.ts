@@ -1,8 +1,10 @@
 import { Collection } from 'discord.js';
 import ping from './ping.js';
+import cookie from './cookie.js';
 
 const arr: Array<any> = [
-    ping
+    ping,
+    cookie
 ]
 
 const file: any = {
