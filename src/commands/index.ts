@@ -6,6 +6,7 @@ import bal from './bal.js';
 import ball from './ball.js';
 import bot from './bot.js';
 import evalcmd from './eval.js';
+import filecmd from './file.js';
 
 const arr: Array<any> = [
     ping,
@@ -14,7 +15,8 @@ const arr: Array<any> = [
     bal,
     ball,
     bot,
-    evalcmd
+    evalcmd,
+    filecmd
 ]
 
 const file: any = {
