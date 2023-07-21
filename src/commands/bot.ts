@@ -30,6 +30,7 @@ export default {
         );
         const embed = new EmbedBuilder()
         .setTitle('Comet Info')
+        .setColor("Blue")
         .setThumbnail(client.user.displayAvatarURL())
         .setDescription(`Comet Is a multipurpose bot with many useful features\n\n**Stats**\n\n> Commands: \`${file.commands.size}\`\n> Aliases: \`${file.aliases.size}\`\n> Users: \`${client.users.cache.size}\`\n> Guilds: \`${client.guilds.cache.size}\``)
         message.reply({ embeds: [embed], components: [row] })
