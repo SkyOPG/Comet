@@ -8,8 +8,6 @@ export default {
     enabled: true,
     permissions: [],
     async execute(client, message, args){
-        client.commands = file.commands;
-        client.aliases = file.aliases;
         const githubApiBaseUrl = 'https://api.github.com';
         const repo = 'SkyOPG/Comet';
         const response = await axios.get(`${githubApiBaseUrl}/repos/${repo}`);
@@ -33,7 +31,7 @@ export default {
         const embed = new EmbedBuilder()
         .setTitle('Comet Info')
         .setThumbnail(client.user.displayAvatarURL())
-        .setDescription(`Comet Is a multipurpose bot with many useful features\n\n**Stats**\n\n> Slash Commands: \`${client.commands.size}\`\n> Prefixed Commands: \`${client.cmdsPrefixed.size}\`\n> Users: \`${client.users.cache.size}\`\n> Guilds: \`${client.guilds.cache.size}\``)
+        .setDescription(`Comet Is a multipurpose bot with many useful features\n\n**Stats**\n\n> Commands: \`${file.commands.size}\`\n> Aliases: \`${file.aliases.size}\`\n> Users: \`${client.users.cache.size}\`\n> Guilds: \`${client.guilds.cache.size}\``)
         message.reply({ embeds: [embed], components: [row] })
     }
 }
