@@ -1,4 +1,4 @@
-import type { Client, Message } from 'discord.js';
+import type { Client } from 'discord.js';
 import { EmbedBuilder } from 'discord.js';
 
 export default {
@@ -6,12 +6,11 @@ export default {
     aliases: ["as"],
     owner: false,
     enabled: true,
-    permissions: [],
+    permissions: ["ManageMessages"],
     execute: async (client: Client<boolean>, message: any, args: string[]) => {
-        if (!message.member?.permissions.has("ManageMessages") && !message.member?.roles.cache.some((r) => r.name === "Deletes")) { return message.reply({ content: "Seems like you don't have `manage_messages` intents or a role named `Deletes`" }) }
         
         const { guild } = message;
-        const rule = await guild?.autoModerationRules.create(
+        const rule = await guild.autoModerationRules.create(
             {
                 name: `Prevent Spam messages by ${client.user?.username}`,
                 creatorId: `1090224528157851678`,
@@ -33,17 +32,19 @@ export default {
                     }
                 ]
 
-            }).catch(async err => { await message.channel.send("your automod rule already exists, please delete it and try again") })
+            }).catch(async err => {
+                 await message.reply("your automod rule already exists!"); 
+                })
 
         const embed = new EmbedBuilder()
           
         .setAuthor({name: `${message.guild?.name}`, iconURL: message.guild?.iconURL()})
         .setColor('#5865F2')
-        .setFooter({text: `Created by: ${message.user.id}`})
+        .setFooter({text: `Created by: ${message.user?.id}`})
         .setTimestamp();
 
       
             if (!rule) return;
-          return await message.channel.send({ embeds: [embed] })
+          return await message.reply({ embeds: [embed] })
     }
 }

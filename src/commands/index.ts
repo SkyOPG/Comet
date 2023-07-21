@@ -1,10 +1,20 @@
 import { Collection } from 'discord.js';
 import ping from './ping.js';
 import cookie from './cookie.js';
+import antispam from './antiSpam.js';
+import bal from './bal.js';
+import ball from './ball.js';
+import bot from './bot.js';
+import evalcmd from './eval.js';
 
 const arr: Array<any> = [
     ping,
-    cookie
+    cookie,
+    antispam,
+    bal,
+    ball,
+    bot,
+    evalcmd
 ]
 
 const file: any = {
