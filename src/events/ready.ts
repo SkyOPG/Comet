@@ -14,6 +14,6 @@ export default event(Events.ClientReady, async ({ log }, client) => {
     await mongoose.connect(keys.mongoURI, options)
     log("[DB]", "Running!");
 
-    client.user.setPresence({ activities: [{ name: "with typescript 1.5.6", type: ActivityType.Playing }] })
+    client.user.setPresence({ activities: [{ name: "c!help", type: ActivityType.Playing }] })
     return log("[Ready]", `logged in as ${client.user.username}`);
 })

@@ -1,5 +1,5 @@
 import { EmbedBuilder } from 'discord.js';
-const answers = ["yes", "no", "maybe"];
+const answers: Array<string> = ["yes", "no", "maybe"];
 
 export default {
     name: "8ball",
@@ -8,6 +8,7 @@ export default {
     aliases: [],
     enabled: true,
   async execute(client, message, args) {
+    const answers: Array<string> = ["yes", "no", "maybe"];
      const randomPick = answers[Math.floor(Math.random() * answers.length)];
      await message.reply({
          embeds: [

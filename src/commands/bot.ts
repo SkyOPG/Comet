@@ -16,6 +16,9 @@ export default {
         const row = new ActionRowBuilder()
         .addComponents(
             new ButtonBuilder()
+            .setEmoji("1132709180084592772")
+            .setStyle(ButtonStyle.Link),
+            new ButtonBuilder()
             .setCustomId("star_count")
             .setDisabled(true)
             .setEmoji("⭐")

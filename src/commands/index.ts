@@ -7,6 +7,9 @@ import ball from './ball.js';
 import bot from './bot.js';
 import evalcmd from './eval.js';
 import filecmd from './file.js';
+import help from './help.js';
+import hangman from './hangman.js';
+import snake from './snake.js';
 
 const arr: Array<any> = [
     ping,
@@ -16,12 +19,16 @@ const arr: Array<any> = [
     ball,
     bot,
     evalcmd,
-    filecmd
+    filecmd,
+    help,
+    snake,
+    hangman
 ]
 
 const file: any = {
     commands: new Collection(),
-    aliases: new Collection()
+    aliases: new Collection(),
+    cooldowns: new Collection()
 } 
 
 arr.forEach((val) => {
