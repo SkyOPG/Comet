@@ -12,9 +12,15 @@ to use this bot:
 make a file called `.env` and put this inside it
 ```js
 CLIENT_TOKEN="bot token"
-MONGOURL="url"
+MONGO="url"
 ```
-- in console 'npm run start'
+run 
+```js
+npm i
+npm i -g typescript
+npm run build
+npm run start
+```
 # contribute
 - fork the bot
 - do your changes
